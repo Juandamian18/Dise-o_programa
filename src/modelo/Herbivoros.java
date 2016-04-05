@@ -11,7 +11,7 @@ package modelo;
  */
 public class Herbivoros extends Especie{
     
-    private double porcentaje;
+    private double porcentajes;
 
     public Herbivoros(double porcentaje, String nombre) {
         super(nombre);
