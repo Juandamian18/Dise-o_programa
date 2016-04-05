@@ -5,7 +5,11 @@
  */
 package vista;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import controlador.Controlador;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import modelo.Veterinario;
 
 /**
  *
@@ -20,7 +24,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
      */
     public VAgregarAnimales() {
         initComponents();
-        
+
     }
 
     /**
@@ -44,7 +48,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbVeterinario = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         btn_AceptarAgregarAnimales = new javax.swing.JButton();
@@ -68,7 +72,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
 
         jLabel6.setText("Veterinario");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbVeterinario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setText("Sector");
 
@@ -114,7 +118,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
                             .addComponent(jTextField2)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, 0, 157, Short.MAX_VALUE)
+                            .addComponent(cmbVeterinario, 0, 157, Short.MAX_VALUE)
                             .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
@@ -144,7 +148,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbVeterinario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -176,13 +180,24 @@ public class VAgregarAnimales extends javax.swing.JFrame {
         btn_AceptarAgregarAnimales.addActionListener(aThis);
     }
 
+    public void llenaVistaVeterinario(ArrayList<Veterinario> veteri) {
+
+        cmbVeterinario.removeAllItems();
+
+        for (Veterinario veterinario : veteri) {
+            cmbVeterinario.addItem(veterinario.getNombre());
+
+        }
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AceptarAgregarAnimales;
+    private javax.swing.JComboBox<String> cmbVeterinario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

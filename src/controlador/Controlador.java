@@ -7,6 +7,8 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.Veterinario;
+import modelo.Zoologico;
 import vista.VAgregarAnimales;
 import vista.VPrincipal;
 
@@ -17,10 +19,12 @@ import vista.VPrincipal;
 public class Controlador implements ActionListener {
 
     private VPrincipal vista;
+    private Zoologico zoologico;
     private VAgregarAnimales vAgregarAnimales;
 
     public Controlador() {
         vista = new VPrincipal();
+        zoologico =  new Zoologico();
 
     }
 
@@ -28,13 +32,16 @@ public class Controlador implements ActionListener {
 
         vista.setControlador(this);
         vista.ejecutar();
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent event) {
         if (event.getActionCommand().equals(vista.BOTON_AGREGAR_ANIMALES)) {
             vAgregarAnimales = new VAgregarAnimales();
+            zoologico.llenarVeterinario();
             vAgregarAnimales.setControlador(this);
+            vAgregarAnimales.llenaVistaVeterinario(zoologico.getVeterinarios());
             vAgregarAnimales.ejecutar();
 
         }

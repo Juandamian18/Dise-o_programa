@@ -9,13 +9,13 @@ package modelo;
  *
  * @author Damian
  */
-class Veterinario {
+public class Veterinario {
 
     private int id;
     private String nombre;
-    private int telefono;
+    private String telefono;
 
-    public Veterinario(int id, String nombre, int telefono) {
+    public Veterinario(int id, String nombre, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -37,13 +37,15 @@ class Veterinario {
         this.nombre = nombre;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
+
+   
     
     
 
