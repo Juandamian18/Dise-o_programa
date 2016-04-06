@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Zoologico {
 
     private static ArrayList<Animal> animales = new ArrayList<Animal>();
-    private static ArrayList<Veterinario> veterinarios = new ArrayList<Veterinario>();
-    private static ArrayList<Especie> especies = new ArrayList<Especie>();
-    private static ArrayList<Sector> sectores = new ArrayList<Sector>();
+    public static ArrayList<Veterinario> veterinarios = new ArrayList<Veterinario>();
+    public static ArrayList<Especie> especies = new ArrayList<Especie>();
+    public static ArrayList<Sector> sectores = new ArrayList<Sector>();
     
 
     public void inicializar() {

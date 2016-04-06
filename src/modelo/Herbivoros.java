@@ -17,6 +17,11 @@ public class Herbivoros extends Especie{
         super(nombre);
         this.porcentaje = porcentaje;
     }
+
+    @Override
+    public String toString() {
+        return this.getNombre();
+    }
     
     
     

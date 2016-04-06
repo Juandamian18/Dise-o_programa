@@ -17,6 +17,11 @@ public class Carnivoros extends Especie{
         super(nombre);
         this.totalFijo = totalFijo;
     }
+
+    @Override
+    public String toString() {
+        return this.getNombre();
+    }
    
      
 }

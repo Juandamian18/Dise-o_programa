@@ -45,6 +45,11 @@ public class Veterinario {
         this.telefono = telefono;
     }
 
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
+
    
     
     

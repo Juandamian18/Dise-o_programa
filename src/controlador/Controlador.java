@@ -41,7 +41,7 @@ public class Controlador implements ActionListener {
         if (event.getActionCommand().equals(vista.BOTON_AGREGAR_ANIMALES)) {
             vAgregarAnimales = new VAgregarAnimales();
             vAgregarAnimales.setControlador(this);
-            vAgregarAnimales.llenarComboBox(zoologico.getVeterinarios());
+            vAgregarAnimales.llenarComboBox(zoologico.veterinarios, zoologico.sectores, zoologico.especies);
             vAgregarAnimales.ejecutar();
 
         }

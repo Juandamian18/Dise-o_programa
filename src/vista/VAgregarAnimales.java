@@ -8,6 +8,7 @@ package vista;
 import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import controlador.Controlador;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import modelo.Especie;
 import modelo.Sector;
@@ -188,18 +189,18 @@ public class VAgregarAnimales extends javax.swing.JFrame {
 
         cmbVeterinario.removeAllItems();
         cmbEspecie.removeAllItems();
-        cmbSector.removeAllItems();
+        cmbSector.setModel(new DefaultComboBoxModel());
 
         for (Veterinario veterinario : veteri) {
-            cmbVeterinario.addItem(veterinario.getNombre());
+            cmbVeterinario.addItem(veterinario);
 
         }
         for (Especie e : especies) {
-            cmbEspecie.addItem(e.getNombre());
+            cmbEspecie.addItem(e);
 
         }
         for (Sector s : sectors) {
-            cmbSector.addItem(Integer.toString(s.getCodigo()));
+            cmbSector.addItem(s);
 
         }
 
@@ -210,9 +211,9 @@ public class VAgregarAnimales extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AceptarAgregarAnimales;
-    private javax.swing.JComboBox<String> cmbEspecie;
-    private javax.swing.JComboBox<String> cmbSector;
-    private javax.swing.JComboBox<String> cmbVeterinario;
+    private javax.swing.JComboBox<Object> cmbEspecie;
+    private javax.swing.JComboBox<Object> cmbSector;
+    private javax.swing.JComboBox<Object> cmbVeterinario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
