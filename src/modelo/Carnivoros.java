@@ -11,11 +11,11 @@ package modelo;
  */
 public class Carnivoros extends Especie{
 
-    private double totalFijo;
+    private double porcentaje;
 
-    public Carnivoros(double totalFijo, String nombre) {
+    public Carnivoros(double porcentaje, String nombre) {
         super(nombre);
-        this.totalFijo = totalFijo;
+        this.porcentaje = porcentaje;
     }
 
     @Override
@@ -23,5 +23,12 @@ public class Carnivoros extends Especie{
         return this.getNombre();
     }
    
+    public double calcularComidaCarnivoros(int dias, double peso){
+        
+        double subto= peso * (porcentaje/100);
+        
+        return subto*dias;
+    
+    }
      
 }

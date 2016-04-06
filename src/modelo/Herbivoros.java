@@ -11,16 +11,24 @@ package modelo;
  */
 public class Herbivoros extends Especie{
     
-    private double porcentaje;
+    private double totalFijo;
 
-    public Herbivoros(double porcentaje, String nombre) {
+    public Herbivoros(double totalFijo, String nombre) {
         super(nombre);
-        this.porcentaje = porcentaje;
+        this.totalFijo = totalFijo;
     }
 
     @Override
     public String toString() {
         return this.getNombre();
+    }
+    
+    public double calcularComidaHerbivoros(int dias, double peso){
+        
+        double subto= peso * 2 + totalFijo;
+        
+        return subto*dias;
+    
     }
     
     
