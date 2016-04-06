@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.Animal;
 import modelo.Veterinario;
 import modelo.Zoologico;
 import vista.VAgregarAnimales;
@@ -43,6 +44,17 @@ public class Controlador implements ActionListener {
             vAgregarAnimales.setControlador(this);
             vAgregarAnimales.llenarComboBox(zoologico.veterinarios, zoologico.sectores, zoologico.especies);
             vAgregarAnimales.ejecutar();
+
+        }
+        
+        if (event.getActionCommand().equals(vAgregarAnimales.BOTON_ACEPTAR_AGREGAR)) {
+            
+            Animal a = new Animal(vAgregarAnimales.getEdad(), vAgregarAnimales.getLugar(), vAgregarAnimales.getPeso(), 
+                    vAgregarAnimales.getVeterinario(), vAgregarAnimales.getSector(), vAgregarAnimales.getEspecie(), vAgregarAnimales.getCodigo());
+            zoologico.animales.add(a);
+            
+            
+           
 
         }
     }
