@@ -25,6 +25,7 @@ public class Controlador implements ActionListener {
     public Controlador() {
         vista = new VPrincipal();
         zoologico =  new Zoologico();
+        zoologico.inicializar();
 
     }
 
@@ -39,9 +40,8 @@ public class Controlador implements ActionListener {
     public void actionPerformed(ActionEvent event) {
         if (event.getActionCommand().equals(vista.BOTON_AGREGAR_ANIMALES)) {
             vAgregarAnimales = new VAgregarAnimales();
-            zoologico.llenarVeterinario();
             vAgregarAnimales.setControlador(this);
-            vAgregarAnimales.llenaVistaVeterinario(zoologico.getVeterinarios());
+            vAgregarAnimales.llenarComboBox(zoologico.getVeterinarios());
             vAgregarAnimales.ejecutar();
 
         }

@@ -32,7 +32,6 @@ public class VPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         btnAgregarAnimales = new javax.swing.JButton();
-        btnAgregarVeterinarios = new javax.swing.JButton();
         btnCalcularAlimento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -44,8 +43,6 @@ public class VPrincipal extends javax.swing.JFrame {
                 btnAgregarAnimalesActionPerformed(evt);
             }
         });
-
-        btnAgregarVeterinarios.setText("Agregar Veterinario");
 
         btnCalcularAlimento.setText("Calcular Allimento");
         btnCalcularAlimento.addActionListener(new java.awt.event.ActionListener() {
@@ -62,7 +59,6 @@ public class VPrincipal extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCalcularAlimento, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarAnimales, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
@@ -71,11 +67,9 @@ public class VPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(btnAgregarAnimales, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAgregarVeterinarios, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(btnCalcularAlimento, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -96,17 +90,14 @@ public class VPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarAnimales;
-    private javax.swing.JButton btnAgregarVeterinarios;
     private javax.swing.JButton btnCalcularAlimento;
     // End of variables declaration//GEN-END:variables
 
     public void setControlador(Controlador aThis) {
         
         btnAgregarAnimales.setActionCommand(BOTON_AGREGAR_ANIMALES);
-        btnAgregarVeterinarios.setActionCommand(BOTON_AGREGAR_VETERINARIOS);
         btnCalcularAlimento.setActionCommand(BOTON_CALCULAR_ALIMENTOS);
         btnAgregarAnimales.addActionListener(aThis);
-        btnAgregarVeterinarios.addActionListener(aThis);
         btnCalcularAlimento.addActionListener(aThis);
         
         

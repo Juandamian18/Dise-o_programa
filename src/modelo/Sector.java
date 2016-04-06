@@ -9,7 +9,7 @@ package modelo;
  *
  * @author Damian
  */
-class Sector {
+public class Sector {
     
     private double latitud;
     private double longitud;

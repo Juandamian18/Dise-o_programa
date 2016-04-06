@@ -61,9 +61,9 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextField2" max="32767" attributes="0"/>
                           <Component id="jTextField4" min="-2" pref="75" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
+                          <Component id="cmbEspecie" alignment="0" min="-2" pref="129" max="-2" attributes="0"/>
                           <Component id="cmbVeterinario" alignment="0" pref="157" max="32767" attributes="0"/>
-                          <Component id="jComboBox3" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="cmbSector" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -97,7 +97,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbEspecie" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -107,7 +107,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbSector" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -153,7 +153,7 @@
         <Property name="text" type="java.lang.String" value="Especie"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cmbEspecie">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -193,7 +193,7 @@
         <Property name="text" type="java.lang.String" value="Sector"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox3">
+    <Component class="javax.swing.JComboBox" name="cmbSector">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">

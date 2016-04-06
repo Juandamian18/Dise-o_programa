@@ -9,6 +9,8 @@ import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import controlador.Controlador;
 import java.util.ArrayList;
 import javax.swing.JComboBox;
+import modelo.Especie;
+import modelo.Sector;
 import modelo.Veterinario;
 
 /**
@@ -46,11 +48,11 @@ public class VAgregarAnimales extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbEspecie = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         cmbVeterinario = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbSector = new javax.swing.JComboBox<>();
         btn_AceptarAgregarAnimales = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
@@ -68,7 +70,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
 
         jLabel5.setText("Especie");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbEspecie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel6.setText("Veterinario");
 
@@ -76,7 +78,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
 
         jLabel7.setText("Sector");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbSector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btn_AceptarAgregarAnimales.setText("Aceptar");
 
@@ -117,9 +119,9 @@ public class VAgregarAnimales extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField2)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbVeterinario, 0, 157, Short.MAX_VALUE)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbSector, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,7 +146,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -152,7 +154,7 @@ public class VAgregarAnimales extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbSector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_AceptarAgregarAnimales, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -180,25 +182,39 @@ public class VAgregarAnimales extends javax.swing.JFrame {
         btn_AceptarAgregarAnimales.addActionListener(aThis);
     }
 
-    public void llenaVistaVeterinario(ArrayList<Veterinario> veteri) {
+    //Metodo que llena los combobox
+    
+    public void llenarComboBox(ArrayList<Veterinario> veteri, ArrayList<Sector> sectors, ArrayList<Especie> especies) {
 
         cmbVeterinario.removeAllItems();
+        cmbEspecie.removeAllItems();
+        cmbSector.removeAllItems();
 
         for (Veterinario veterinario : veteri) {
             cmbVeterinario.addItem(veterinario.getNombre());
 
         }
+        for (Especie e : especies) {
+            cmbEspecie.addItem(e.getNombre());
+
+        }
+        for (Sector s : sectors) {
+            cmbSector.addItem(Integer.toString(s.getCodigo()));
+
+        }
 
     }
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_AceptarAgregarAnimales;
+    private javax.swing.JComboBox<String> cmbEspecie;
+    private javax.swing.JComboBox<String> cmbSector;
     private javax.swing.JComboBox<String> cmbVeterinario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
