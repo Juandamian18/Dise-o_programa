@@ -7,6 +7,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import static javax.swing.JOptionPane.showMessageDialog;
 import modelo.Animal;
 import modelo.Carnivoros;
 import modelo.Especie;
@@ -57,6 +58,7 @@ public class Controlador implements ActionListener {
             Animal a = new Animal(vAgregarAnimales.getEdad(), vAgregarAnimales.getLugar(), vAgregarAnimales.getPeso(),
                     vAgregarAnimales.getVeterinario(), vAgregarAnimales.getSector(), vAgregarAnimales.getEspecie(), vAgregarAnimales.getCodigo());
             zoologico.animales.add(a);
+            showMessageDialog(null, "Animal Agregado con Exito");
 
         }
 
@@ -83,7 +85,7 @@ public class Controlador implements ActionListener {
                     if (c.getClass().equals(Herbivoros.class)) {
                         h = (Herbivoros) c;
 
-                        totalComida = totalComida + h.calcularComidaHerbivoros(20, 100);
+                        totalComida = totalComida + h.calcularComidaHerbivoros(vCalcularAlimento.getDias(), a.getPeso());
 
                     }
 
@@ -97,6 +99,7 @@ public class Controlador implements ActionListener {
 
             }
 
+            showMessageDialog(null, "La cantidad de comida que tiene que comprar es: "+ totalComida +"KG");
             System.out.println(totalComida);
         }
     }

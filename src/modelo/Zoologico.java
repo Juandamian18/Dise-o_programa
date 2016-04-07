@@ -69,5 +69,6 @@ public class Zoologico {
     public ArrayList<Veterinario> getVeterinarios() {
         return veterinarios;
     }
+     
 
 }
