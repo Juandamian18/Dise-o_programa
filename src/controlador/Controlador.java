@@ -11,6 +11,7 @@ import modelo.Animal;
 import modelo.Veterinario;
 import modelo.Zoologico;
 import vista.VAgregarAnimales;
+import vista.VCalcularAlimento;
 import vista.VPrincipal;
 
 /**
@@ -22,6 +23,7 @@ public class Controlador implements ActionListener {
     private VPrincipal vista;
     private Zoologico zoologico;
     private VAgregarAnimales vAgregarAnimales;
+    private VCalcularAlimento vCalcularAlimento;
 
     public Controlador() {
         vista = new VPrincipal();
@@ -52,10 +54,14 @@ public class Controlador implements ActionListener {
             Animal a = new Animal(vAgregarAnimales.getEdad(), vAgregarAnimales.getLugar(), vAgregarAnimales.getPeso(), 
                     vAgregarAnimales.getVeterinario(), vAgregarAnimales.getSector(), vAgregarAnimales.getEspecie(), vAgregarAnimales.getCodigo());
             zoologico.animales.add(a);
+          
+        }
+        
+        if (event.getActionCommand().equals(vista.BOTON_CALCULAR_ALIMENTOS)) {
             
-            
-           
-
+            vCalcularAlimento = new VCalcularAlimento();
+            vCalcularAlimento.ejecutar();
+          
         }
     }
 
