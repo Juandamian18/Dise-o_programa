@@ -18,6 +18,12 @@ public class Herbivoros extends Especie{
         this.totalFijo = totalFijo;
     }
 
+    public Herbivoros(String nombre) {
+        super(nombre);
+    }
+
+    
+
     @Override
     public String toString() {
         return this.getNombre();

@@ -18,6 +18,12 @@ public class Carnivoros extends Especie{
         this.porcentaje = porcentaje;
     }
 
+    public Carnivoros(String nombre) {
+        super(nombre);
+    }
+    
+    
+
     @Override
     public String toString() {
         return this.getNombre();

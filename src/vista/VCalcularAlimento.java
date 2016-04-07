@@ -5,12 +5,19 @@
  */
 package vista;
 
+import controlador.Controlador;
+import java.util.Date;
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+
 /**
  *
  * @author Damián
  */
 public class VCalcularAlimento extends javax.swing.JFrame {
 
+    public static final String BOTON_ACEPTAR_CALCULAR = "aceptar calcular";
+    
     /**
      * Creates new form VCalcularAlimento
      */
@@ -27,11 +34,11 @@ public class VCalcularAlimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
+        dtpFechaInicio = new org.jdesktop.swingx.JXDatePicker();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jXDatePicker2 = new org.jdesktop.swingx.JXDatePicker();
-        jButton1 = new javax.swing.JButton();
+        dtpFechaFinal = new org.jdesktop.swingx.JXDatePicker();
+        btnAceptarCalcular = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -41,7 +48,7 @@ public class VCalcularAlimento extends javax.swing.JFrame {
 
         jLabel2.setText("Fecha Final");
 
-        jButton1.setText("Aceptar");
+        btnAceptarCalcular.setText("Aceptar");
 
         jButton2.setText("Cancelar");
 
@@ -58,10 +65,10 @@ public class VCalcularAlimento extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(dtpFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dtpFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAceptarCalcular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)))
                 .addContainerGap(50, Short.MAX_VALUE))
@@ -71,15 +78,15 @@ public class VCalcularAlimento extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dtpFechaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jXDatePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dtpFechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnAceptarCalcular)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -93,12 +100,28 @@ public class VCalcularAlimento extends javax.swing.JFrame {
     public void ejecutar() {
         this.setVisible(true); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public int getDias() {
+
+        Date past = dtpFechaInicio.getDate(); 
+        Date today = dtpFechaFinal.getDate(); 
+        int days = Days.daysBetween(new DateTime(past), new DateTime(today)).getDays();
+        
+        return days;
+    }
+    
+    public void setControlador(Controlador aThis){
+    
+        btnAceptarCalcular.setActionCommand(BOTON_ACEPTAR_CALCULAR);
+        btnAceptarCalcular.addActionListener(aThis);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnAceptarCalcular;
+    private org.jdesktop.swingx.JXDatePicker dtpFechaFinal;
+    private org.jdesktop.swingx.JXDatePicker dtpFechaInicio;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
-    private org.jdesktop.swingx.JXDatePicker jXDatePicker2;
     // End of variables declaration//GEN-END:variables
 }

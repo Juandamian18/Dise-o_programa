@@ -8,6 +8,9 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Animal;
+import modelo.Carnivoros;
+import modelo.Especie;
+import modelo.Herbivoros;
 import modelo.Veterinario;
 import modelo.Zoologico;
 import vista.VAgregarAnimales;
@@ -27,7 +30,7 @@ public class Controlador implements ActionListener {
 
     public Controlador() {
         vista = new VPrincipal();
-        zoologico =  new Zoologico();
+        zoologico = new Zoologico();
         zoologico.inicializar();
 
     }
@@ -36,7 +39,7 @@ public class Controlador implements ActionListener {
 
         vista.setControlador(this);
         vista.ejecutar();
-        
+
     }
 
     @Override
@@ -48,20 +51,53 @@ public class Controlador implements ActionListener {
             vAgregarAnimales.ejecutar();
 
         }
-        
+
         if (event.getActionCommand().equals(vAgregarAnimales.BOTON_ACEPTAR_AGREGAR)) {
-            
-            Animal a = new Animal(vAgregarAnimales.getEdad(), vAgregarAnimales.getLugar(), vAgregarAnimales.getPeso(), 
+
+            Animal a = new Animal(vAgregarAnimales.getEdad(), vAgregarAnimales.getLugar(), vAgregarAnimales.getPeso(),
                     vAgregarAnimales.getVeterinario(), vAgregarAnimales.getSector(), vAgregarAnimales.getEspecie(), vAgregarAnimales.getCodigo());
             zoologico.animales.add(a);
-          
+
         }
-        
+
         if (event.getActionCommand().equals(vista.BOTON_CALCULAR_ALIMENTOS)) {
-            
+
             vCalcularAlimento = new VCalcularAlimento();
+            vCalcularAlimento.setControlador(this);
             vCalcularAlimento.ejecutar();
-          
+
+        }
+
+        if (event.getActionCommand().equals(vCalcularAlimento.BOTON_ACEPTAR_CALCULAR)) {
+
+            double totalComida = 0;
+            Herbivoros h = new Herbivoros("");
+            Carnivoros car = new Carnivoros("");
+
+            for (Animal a : zoologico.animales) {
+                
+
+                for (Especie c : zoologico.especies) {
+                    
+
+                    if (c.getClass().equals(Herbivoros.class)) {
+                        h = (Herbivoros) c;
+
+                        totalComida = totalComida + h.calcularComidaHerbivoros(20, 100);
+
+                    }
+
+                    if (c.getClass().equals(Carnivoros.class)) {
+                        car = (Carnivoros) c;
+
+                        totalComida = totalComida + car.calcularComidaCarnivoros(vCalcularAlimento.getDias(), a.getPeso());
+
+                    }
+                }
+
+            }
+
+            System.out.println(totalComida);
         }
     }
 
